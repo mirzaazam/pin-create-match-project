@@ -15,3 +15,10 @@ function generatePin() {
     return random;
 }
 
+document.getElementById('generate-pin').addEventListener('click', function(){
+    const generateField = document.getElementById('generate-field');
+    const pinGet = getPin();
+    generateField.value = pinGet;
+
+    console.log('clicked');
+})
