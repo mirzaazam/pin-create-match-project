@@ -29,7 +29,7 @@ document.getElementById('buttons').addEventListener('click', function () {
     const getNumberFromBtn = event.target.innerText;
     const typeNumber = document.getElementById('typed-inputField');
     const getImidiateNumberFromTypeNumberField = typeNumber.value;
-    
+
     if (isNaN(getNumberFromBtn)) {
         if (getNumberFromBtn == '<') {
             const digit = getImidiateNumberFromTypeNumberField.split('');
@@ -62,7 +62,7 @@ document.getElementById('clear').addEventListener('click', function () {
 //     typeNumber.value = finalResult;
 // });
 
-document.getElementById('submit-btn').addEventListener('click', function(){
+document.getElementById('submit-btn').addEventListener('click', function () {
     //get generate input field from DOM
     const generateField = document.getElementById('generate-field');
     const generateFieldValue = generateField.value;
@@ -79,14 +79,24 @@ document.getElementById('submit-btn').addEventListener('click', function(){
     generateField.value = '';
     typedInputField.value = '';
 
-    //this logic for correct or incorrect notification set or hide.
-    if( typedInputFieldValue === generateFieldValue ){
-        correct.style.display = 'block';
-        incorrect.style.display = 'none';
+    //this logic for empty input field
+    if (typedInputFieldValue == '') {
+        alert('Please type pin!');
     }
 
-    else{
-        incorrect.style.display = 'block';
-        correct.style.display = 'none';
+    else {
+
+        //this logic for correct or incorrect notification set or hide.
+        if (typedInputFieldValue === generateFieldValue) {
+            correct.style.display = 'block';
+            incorrect.style.display = 'none';
+        }
+
+        else {
+            incorrect.style.display = 'block';
+            correct.style.display = 'none';
+
+        }
     }
+
 });
