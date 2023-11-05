@@ -24,12 +24,12 @@ document.getElementById('generate-pin').addEventListener('click', function () {
     generateField.value = pinGet;
 })
 
-
+//event handler for btns
 document.getElementById('buttons').addEventListener('click', function () {
     const getNumberFromBtn = event.target.innerText;
     const typeNumber = document.getElementById('typed-inputField');
     const getImidiateNumberFromTypeNumberField = typeNumber.value;
-
+    
     if (isNaN(getNumberFromBtn)) {
         if (getNumberFromBtn == '<') {
             const digit = getImidiateNumberFromTypeNumberField.split('');
@@ -45,8 +45,39 @@ document.getElementById('buttons').addEventListener('click', function () {
 
 })
 
+//event handler for btn for c btn
 document.getElementById('clear').addEventListener('click', function () {
     const clear = document.getElementById('typed-inputField');
     clear.value = '';
 });
 
+
+// alternative event handler process of backspace 
+// document.getElementById('backSpace').addEventListener('click', function () {
+//     const typeNumber = document.getElementById('typed-inputField');
+//     const getImidiateNumberFromTypeNumberField = typeNumber.value;
+//     const makeArry =  getImidiateNumberFromTypeNumberField.split('');
+//     makeArry.pop();
+//     const finalResult = makeArry.join('');
+//     typeNumber.value = finalResult;
+// });
+
+document.getElementById('submit-btn').addEventListener('click', function(){
+    const generateField = document.getElementById('generate-field');
+    const generateFieldValue = generateField.value;
+
+    const typedInputField = document.getElementById('typed-inputField');
+    const typedInputFieldValue = typedInputField.value;
+    const correct = document.getElementById('correct');
+    const incorrect = document.getElementById('notMatch');
+
+    if( typedInputFieldValue === generateFieldValue ){
+        correct.style.display = 'block';
+        incorrect.style.display = 'none';
+    }
+
+    else{
+        incorrect.style.display = 'block';
+        correct.style.display = 'none';
+    }
+});
