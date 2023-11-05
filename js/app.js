@@ -63,14 +63,23 @@ document.getElementById('clear').addEventListener('click', function () {
 // });
 
 document.getElementById('submit-btn').addEventListener('click', function(){
+    //get generate input field from DOM
     const generateField = document.getElementById('generate-field');
     const generateFieldValue = generateField.value;
 
+    //get typed input field from DOM
     const typedInputField = document.getElementById('typed-inputField');
     const typedInputFieldValue = typedInputField.value;
+
+    //get correct or incorrect notification from DOM
     const correct = document.getElementById('correct');
     const incorrect = document.getElementById('notMatch');
 
+    //input field clear.
+    generateField.value = '';
+    typedInputField.value = '';
+
+    //this logic for correct or incorrect notification set or hide.
     if( typedInputFieldValue === generateFieldValue ){
         correct.style.display = 'block';
         incorrect.style.display = 'none';
